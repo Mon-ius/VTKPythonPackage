@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.12)
 project(VTKPythonPackage NONE)
 
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
-# set(CMAKE_MAKE_PROGRAM "make -j 20")
+
 include(VTKPythonPackage)
 
 if(NOT DEFINED VTKPythonPackage_SUPERBUILD)
@@ -41,6 +41,7 @@ if(VTKPythonPackage_SUPERBUILD)
       -DCMAKE_MAKE_PROGRAM:FILEPATH=${CMAKE_MAKE_PROGRAM})
   endif()
 
+  set(CMAKE_MAKE_PROGRAM ${CMAKE_MAKE_PROGRAM}"make -j 20")
   # Avoid "Manually-specified variables were not used by the project" warnings.
   vpp_unused_vars(${PYTHON_VERSION_STRING} ${SKBUILD})
 
