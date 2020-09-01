@@ -1,8 +1,9 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.12)
 
 project(VTKPythonPackage NONE)
 
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
+set(CMAKE_MAKE_PROGRAM "make -j 20")
 include(VTKPythonPackage)
 
 if(NOT DEFINED VTKPythonPackage_SUPERBUILD)
@@ -98,7 +99,7 @@ if(VTKPythonPackage_SUPERBUILD)
 
   set(VTK_REPOSITORY "https://github.com/kitware/VTK.git")
   # VTK nightly-master 2018-05-14
-  set(VTK_GIT_TAG "v8.1.2")
+  # set(VTK_GIT_TAG "v8.1.2")
 
   #-----------------------------------------------------------------------------
   # A separate project is used to download VTK, so that it can reused
